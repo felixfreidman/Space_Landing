@@ -1,44 +1,26 @@
 @font-face {
   font-style: normal;
-  font-weight: 100;
+  font-weight: 500;
   font-family: "CoFo Sans";
-  src: url("./CoFo Sans-ExtraLight.ttf");
-}
-@font-face {
-  font-style: normal;
-  font-weight: 200;
-  font-family: "CoFo Sans";
-  src: url("./CoFo Sans-Light.ttf");
-}
-@font-face {
-  font-style: normal;
-  font-weight: 300;
-  font-family: "CoFo Sans";
-  src: url("./CoFo Sans-Regular.ttf");
+  src: url("./CoFoSans-Medium.ttf");
 }
 @font-face {
   font-style: normal;
   font-weight: 400;
   font-family: "CoFo Sans";
-  src: url("./CoFo Sans-Medium.ttf");
-}
-@font-face {
-  font-style: normal;
-  font-weight: 500;
-  font-family: "CoFo Sans";
-  src: url("./CoFo Sans-SemiBold.ttf");
+  src: url("./CoFoSans-Regular.ttf");
 }
 @font-face {
   font-style: normal;
   font-weight: 600;
   font-family: "CoFo Sans";
-  src: url("./CoFo Sans-Bold.ttf");
+  src: url("./CoFoSans-Bold.ttf");
 }
 @font-face {
   font-style: normal;
   font-weight: 700;
   font-family: "CoFo Sans";
-  src: url("./CoFo Sans-ExtraBold.ttf");
+  src: url("./CoFoSans-Black.ttf");
 }
 
 * {
@@ -233,7 +215,7 @@
     ),
     url(./card4Bg.png);
   background-size: cover;
-  background-position: 40% 50%;
+  background-position: 40%font-weight 50%;
   margin-left: 10px;
   margin-right: 10px;
 }
@@ -658,7 +640,7 @@
 }
 
 .content-note span {
-  font-weight: 700;
+  font-weight: 600;
 }
 
 .content-button {
