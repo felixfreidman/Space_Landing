@@ -1,50 +1,51 @@
 @font-face {
-  font-family: "Manrope";
   font-style: normal;
   font-weight: 100;
-  src: url("./Manrope-ExtraLight.ttf");
+  font-family: "CoFo Sans";
+  src: url("./CoFo Sans-ExtraLight.ttf");
 }
 @font-face {
-  font-family: "Manrope";
   font-style: normal;
   font-weight: 200;
-  src: url("./Manrope-Light.ttf");
+  font-family: "CoFo Sans";
+  src: url("./CoFo Sans-Light.ttf");
 }
 @font-face {
-  font-family: "Manrope";
   font-style: normal;
   font-weight: 300;
-  src: url("./Manrope-Regular.ttf");
+  font-family: "CoFo Sans";
+  src: url("./CoFo Sans-Regular.ttf");
 }
 @font-face {
-  font-family: "Manrope";
   font-style: normal;
   font-weight: 400;
-  src: url("./Manrope-Medium.ttf");
+  font-family: "CoFo Sans";
+  src: url("./CoFo Sans-Medium.ttf");
 }
 @font-face {
-  font-family: "Manrope";
   font-style: normal;
   font-weight: 500;
-  src: url("./Manrope-SemiBold.ttf");
+  font-family: "CoFo Sans";
+  src: url("./CoFo Sans-SemiBold.ttf");
 }
 @font-face {
-  font-family: "Manrope";
   font-style: normal;
   font-weight: 600;
-  src: url("./Manrope-Bold.ttf");
+  font-family: "CoFo Sans";
+  src: url("./CoFo Sans-Bold.ttf");
 }
 @font-face {
-  font-family: "Manrope";
   font-style: normal;
   font-weight: 700;
-  src: url("./Manrope-ExtraBold.ttf");
+  font-family: "CoFo Sans";
+  src: url("./CoFo Sans-ExtraBold.ttf");
 }
 
 * {
   padding: 0;
   margin: 0;
   box-sizing: border-box;
+  font-family: "CoFo Sans";
 }
 
 .main {
@@ -91,6 +92,50 @@
   z-index: 5;
 }
 
+.header-span {
+  font-weight: 400;
+  font-size: 14px;
+  line-height: 143%;
+  letter-spacing: -0.01em;
+  color: #ffffff;
+  opacity: 0.5;
+  margin-right: 12px;
+}
+
+.header-row {
+  display: flex;
+  align-items: center;
+}
+
+.header-link {
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border: 1px solid #ffffff;
+  border-radius: 16px;
+  font-weight: 500;
+  font-size: 12px;
+  line-height: 100%;
+  letter-spacing: -0.005em;
+  color: #ffffff;
+  margin-left: 12px;
+  padding: 10px 24px;
+  transition: all 0.3s ease;
+}
+
+.header-link:hover {
+  color: #007bfb;
+  background-color: #ffffff;
+}
+
+.header-link--active {
+  color: #007bfb;
+  background-color: #ffffff;
+  cursor: pointer;
+  cursor: default;
+}
+
 .social {
   width: 53px;
   height: 53px;
@@ -101,8 +146,7 @@
 }
 
 .main-header {
-  font-family: "Manrope";
-  font-weight: 400;
+  font-weight: 500;
   font-size: 56.1166px;
   line-height: 130%;
   letter-spacing: -0.02em;
@@ -111,7 +155,6 @@
 }
 
 .main-subheader {
-  font-family: "Manrope";
   font-weight: 400;
   font-size: 24px;
   line-height: 130%;
@@ -136,38 +179,73 @@
 .card {
   width: calc(20% - 16px);
   height: 100%;
-  background-size: cover;
-  background-position: 40% 50%;
+
   border-radius: 16px;
   display: flex;
   flex-direction: column;
   align-items: start;
+  justify-content: space-between;
   padding: 30px 25px 25px;
   transition: all 0.8s ease;
   cursor: pointer;
 }
 
 .card--1 {
-  background-image: url(./card1Bg.png);
+  background: linear-gradient(
+      180deg,
+      rgba(0, 0, 0, 0) 37.97%,
+      rgba(0, 0, 0, 0.4) 67.51%
+    ),
+    url(./card1Bg.png);
+  background-size: cover;
+  background-position: 40% 50%;
   margin-right: 10px;
 }
 .card--2 {
-  background-image: url(./card2Bg.png);
+  background: linear-gradient(
+      180deg,
+      rgba(0, 0, 0, 0) 37.97%,
+      rgba(0, 0, 0, 0.4) 67.51%
+    ),
+    url(./card2Bg.png);
+  background-size: cover;
+  background-position: 40% 50%;
   margin-left: 10px;
   margin-right: 10px;
 }
 .card--3 {
-  background-image: url(./card3Bg.png);
+  background: linear-gradient(
+      180deg,
+      rgba(0, 0, 0, 0) 37.97%,
+      rgba(0, 0, 0, 0.4) 67.51%
+    ),
+    url(./card3Bg.png);
+  background-size: cover;
+  background-position: 40% 50%;
   margin-left: 10px;
   margin-right: 10px;
 }
 .card--4 {
-  background-image: url(./card4Bg.png);
+  background: linear-gradient(
+      180deg,
+      rgba(0, 0, 0, 0) 37.97%,
+      rgba(0, 0, 0, 0.4) 67.51%
+    ),
+    url(./card4Bg.png);
+  background-size: cover;
+  background-position: 40% 50%;
   margin-left: 10px;
   margin-right: 10px;
 }
 .card--5 {
-  background-image: url(./card5Bg.png);
+  background: linear-gradient(
+      180deg,
+      rgba(0, 0, 0, 0) 37.97%,
+      rgba(0, 0, 0, 0.4) 67.51%
+    ),
+    url(./card5Bg.png);
+  background-size: cover;
+  background-position: 40% 50%;
   margin-left: 10px;
   margin-right: 0px;
 }
@@ -177,7 +255,7 @@
   background: #2a66ff;
   opacity: 0.9;
   border-radius: 13.1574px;
-  font-family: "Manrope";
+
   font-style: normal;
   font-weight: 600;
   font-size: 26.3147px;
@@ -205,19 +283,28 @@
 .card-cat {
   background: #ffffff;
   border-radius: 20px;
-  padding: 6px 10px;
-  font-family: "Manrope";
-  font-style: normal;
+  padding: 10px 24px;
   font-weight: 500;
-  font-size: 14px;
-  line-height: 86%;
-  letter-spacing: -0.02em;
-  color: #0a0e19;
+  font-size: 12px;
+  line-height: 100%;
+  display: none;
+  align-items: center;
+  text-align: center;
+  letter-spacing: -0.005em;
+  color: #007bfb;
   margin-right: 4px;
 }
 
+.cart-header-add {
+  font-weight: 400;
+  font-size: 32px;
+  line-height: 112%;
+  letter-spacing: -0.015em;
+  color: #ffffff;
+  margin-bottom: 8px;
+}
+
 .cart-description {
-  font-family: "Manrope";
   font-style: normal;
   font-weight: 400;
   font-size: 20px;
@@ -228,11 +315,13 @@
 .card:hover {
   width: 100%;
 }
-.card:hover .card-header {
+.card:hover .card-cat {
   display: block;
+  animation: fadeOut 1.2s ease;
 }
 .card:hover .card-content {
-  display: block;
+  display: flex;
+  animation: fadeOut 1.2s ease;
 }
 
 .card-special-content {
@@ -240,6 +329,8 @@
   width: 100%;
   height: 100%;
   position: relative;
+  box-shadow: 0px 0px 60px rgba(42, 102, 255, 0.6);
+  border-radius: 40px;
 }
 
 .card-active {
@@ -263,11 +354,26 @@
   height: 100vh;
   min-height: 529px;
   max-height: calc(100vh - 271px);
-  background-image: url(./card3Bg.png);
   background-repeat: no-repeat;
   background-size: 150%;
   background-position: 0px 0px;
   transition: all 0.8s ease;
+}
+.special-bg1 {
+  background-image: url(./card1Bg.png);
+  background-size: 12 0% !important;
+}
+.special-bg2 {
+  background-image: url(./card2Bg.png);
+}
+.special-bg3 {
+  background-image: url(./card3Bg.png);
+}
+.special-bg4 {
+  background-image: url(./card4Bg.png);
+}
+.special-bg5 {
+  background-image: url(./card5Bg.png);
 }
 
 .card-active .card-special-content {
@@ -280,7 +386,7 @@
   overflow-x: hidden;
 }
 
-.card-active .card-header {
+.card-active .card-cat {
   display: none !important;
 }
 .card-active .card-content {
@@ -306,8 +412,14 @@
   justify-content: space-between;
   width: 100%;
 }
+
+.card-info-panel__column {
+  display: flex;
+  flex-direction: column;
+  align-items: start;
+}
+
 .card-info-panel__header {
-  font-family: "Manrope";
   font-style: normal;
   font-weight: 600;
   font-size: 60px;
@@ -315,6 +427,22 @@
   text-align: center;
   letter-spacing: -0.02em;
   color: #ffffff;
+  margin-bottom: 21px;
+}
+
+.card-info-panel__button {
+  background: #007bfb;
+  border-radius: 20px;
+  padding: 13px 24px;
+  font-weight: 500;
+  font-size: 14px;
+  line-height: 100%;
+  display: flex;
+  align-items: center;
+  text-align: center;
+  letter-spacing: -0.01em;
+  color: #ffffff;
+  text-decoration: none;
 }
 
 .card-info-panel__row {
@@ -334,7 +462,6 @@
 }
 
 .card-special-header {
-  font-family: "Manrope";
   font-style: normal;
   font-weight: 400;
   font-size: 14px;
@@ -343,11 +470,16 @@
   opacity: 0.7;
   margin-bottom: 5px;
 }
+.card-special-header--red {
+  color: #ed584e;
+}
+.card-special-header--green {
+  color: #5cc867;
+}
 
 .card-special-description {
-  font-family: "Manrope";
   font-style: normal;
-  font-weight: 600;
+  font-weight: 500;
   font-size: 16px;
   line-height: 120%;
   letter-spacing: -0.02em;
@@ -356,28 +488,45 @@
 
 .note {
   position: absolute;
-  background: #0b101f;
-  font-family: "Manrope";
-  border-radius: 21px;
-  padding: 30px;
-  font-weight: 500;
+  background: #ffffff;
+  box-shadow: 0px 0px 60px rgba(0, 0, 0, 0.3);
+  border-radius: 24px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 20px;
+  padding-left: 36px;
+  font-weight: 400;
   font-size: 16px;
   line-height: 150%;
-  max-width: 453px;
-  letter-spacing: -0.02em;
-  color: #ffffff;
+  letter-spacing: -0.01em;
+  color: #282d3c;
+  max-width: 441px;
 }
+
+.note::before {
+  content: "";
+  display: block;
+  position: absolute;
+  top: 20px;
+  left: 20px;
+  background: #007bfb;
+  border-radius: 23px;
+  height: calc(100% - 40px);
+  width: 5px;
+}
+
 .note1 {
   bottom: 40px;
   left: 40px;
 }
 .note2 {
   right: 40px;
-  top: 40px;
+  bottom: 40px;
 }
 .note3 {
   right: 40px;
-  bottom: 40px;
+  top: 40px;
 }
 
 .special-note {
@@ -385,17 +534,121 @@
   display: flex;
   align-items: center;
   justify-content: space-between;
-  background: #ffffff;
-  backdrop-filter: blur(2px);
-  border-radius: 21px;
   position: absolute;
   bottom: 40px;
   left: 40px;
-  padding: 32px 38px;
+}
+
+.special-note__card {
+  width: calc(50% - 26px);
+  max-width: 634px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  background: #ffffff;
+  border-radius: 24px;
+  padding: 12px;
+  padding-right: 42px;
+}
+
+.special-note__content {
+  display: flex;
+  flex-direction: column;
+  align-items: start;
+  margin-left: 15px;
+}
+
+.special-note__header {
+  font-weight: 400;
+  font-size: 16px;
+  line-height: 150%;
+  letter-spacing: -0.01em;
+  color: #007bfb;
+  margin-bottom: 5px;
+}
+
+.special-note__description {
+  font-weight: 400;
+  font-size: 16px;
+  line-height: 150%;
+  letter-spacing: -0.01em;
+  color: #282d3c;
+}
+
+.special-note__button {
+  margin-top: 12px;
+  background: #007bfb;
+  border-radius: 20px;
+  padding: 12px 24px;
+  font-weight: 500;
+  font-size: 14px;
+  line-height: 100%;
+  letter-spacing: -0.01em;
+  color: #ffffff;
+  text-decoration: none;
+}
+
+.special-note__card--blue {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: calc(50% - 26px);
+  max-width: 634px;
+  padding: 24px 12px 24px 32px;
+  background: #007bfb;
+  backdrop-filter: blur(2px);
+  border-radius: 24px;
+  max-height: 155px;
+}
+
+.special-note__card--blue-content {
+  display: flex;
+  flex-direction: column;
+  align-items: start;
+}
+
+.special-note__card--blue-span {
+  font-weight: 400;
+  font-size: 16px;
+  line-height: 150%;
+  letter-spacing: -0.01em;
+  color: #ffffff;
+  margin-bottom: 4px;
+}
+
+.special-note__card--blue-header {
+  font-weight: 500;
+  font-size: 32px;
+  line-height: 112%;
+  letter-spacing: -0.015em;
+  color: #ffffff;
+  margin-bottom: 12px;
+}
+
+.special-note__card--blue-panel {
+  display: flex;
+  align-items: center;
+}
+
+.special-note__card--blue__cat {
+  font-weight: 500;
+  font-size: 10px;
+  line-height: 100%;
+  letter-spacing: -0.005em;
+  color: #ffffff;
+  padding: 10px 24px;
+  margin-right: 4px;
+  border: 1px solid #ffffff;
+  border-radius: 16px;
+}
+
+.special-note__card--blue__img {
+  width: 194px;
+  height: 131px;
+  border-radius: 16px;
 }
 
 .content-note {
-  font-family: "Manrope";
   font-style: normal;
   font-weight: 400;
   font-size: 24px;
@@ -412,7 +665,7 @@
   background: #2a66ff;
   border-radius: 34px;
   padding: 10px 56px;
-  font-family: "Manrope";
+
   font-style: normal;
   font-weight: 600;
   font-size: 21.3043px;
@@ -433,6 +686,24 @@
 .js--hidden-opacity {
   visibility: hidden;
   pointer-events: none;
+}
+
+@keyframes fadeOut {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+
+@keyframes maxWidth {
+  0% {
+    width: calc(20%);
+  }
+  100% {
+    width: 100%;
+  }
 }
 
 @media screen and (min-width: 1441px) {
