@@ -7,6 +7,11 @@ allCards.forEach(card => {
     card.addEventListener('click', () => {
         card.classList.add('card-active');
         main.classList.add('main--cardActive');
+        allCards.forEach(inner_card => {
+            if (!inner_card.classList.contains('card-active')) {
+                inner_card.classList.add('js--hidden-opacity');
+            }
+        })
     })
 })
 
@@ -28,6 +33,9 @@ cardSection.addEventListener('wheel', (event) => {
         $('.card-special-content')
             .find('.special-bg')
             .css('background-position', `0% 0%`);
+        $('.card-special-content')
+            .find('.special-bg')
+            .css('background-size', '150%');
     } else if (flag == 1) {
         document.querySelector('.note1').classList.add('js--hidden');
         document.querySelector('.note3').classList.add('js--hidden');
@@ -39,6 +47,9 @@ cardSection.addEventListener('wheel', (event) => {
         $('.card-special-content')
             .find('.special-bg')
             .css('background-position', `100% 70%`);
+        $('.card-special-content')
+            .find('.special-bg')
+            .css('background-size', '150%');
     } else if (flag == 2) {
         document.querySelector('.note2').classList.add('js--hidden');
         document.querySelector('.note1').classList.add('js--hidden');
@@ -50,6 +61,9 @@ cardSection.addEventListener('wheel', (event) => {
         $('.card-special-content')
             .find('.special-bg')
             .css('background-position', `50% 100%`);
+        $('.card-special-content')
+            .find('.special-bg')
+            .css('background-size', '150%');
     }
     else if (flag == 3) {
         document.querySelector('.note2').classList.add('js--hidden');
