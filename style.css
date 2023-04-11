@@ -431,7 +431,7 @@
 }
 
 .js--hidden-opacity {
-  opacity: 0 !important;
+  visibility: hidden;
   pointer-events: none;
 }
 
