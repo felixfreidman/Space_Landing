@@ -119,4 +119,22 @@ function scrollSpecial() {
 
     }
 }
-;
+
+let touchstartY = 0
+let touchendY = 0
+
+function checkDirection() {
+    if (touchendY < touchstartY) alert('swiped down!')
+    if (touchendY > touchstartY) alert('swiped up!')
+}
+
+document.addEventListener('touchstart', e => {
+    touchstartY = e.changedTouches[0].screenY
+
+})
+
+document.addEventListener('touchend', e => {
+    touchendT = e.changedTouches[0].screenY
+    checkDirection()
+})
+    ;
