@@ -1,0 +1,240 @@
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+}
+
+.main {
+  width: 100vw;
+  height: 100vh;
+  min-height: 900px;
+  background: url(./bg.png),
+    linear-gradient(121.38deg, #0a0d15 12.02%, #0c1737 94.29%);
+  background-size: cover;
+  background-repeat: no-repeat;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+}
+
+.logo {
+  position: absolute;
+  top: 27px;
+  left: 100px;
+}
+
+.header {
+  position: absolute;
+  top: 27px;
+  right: 100px;
+  display: flex;
+  align-items: center;
+}
+
+.social {
+  width: 53px;
+  height: 53px;
+  background: #d9d9d9;
+  opacity: 0.2;
+  border-radius: 50%;
+  margin-left: 15px;
+}
+
+.main-header {
+  font-family: "Manrope";
+  font-weight: 400;
+  font-size: 56.1166px;
+  line-height: 130%;
+  letter-spacing: -0.02em;
+  color: #ffffff;
+  margin-bottom: 13px;
+}
+
+.main-subheader {
+  font-family: "Manrope";
+  font-weight: 400;
+  font-size: 24px;
+  line-height: 130%;
+  text-align: center;
+  letter-spacing: -0.02em;
+  color: #b7b7b7;
+  margin-bottom: 68px;
+}
+
+.main-subheader span {
+  color: #2b66ff;
+}
+
+.main-section {
+  width: 100%;
+  height: 393px;
+  display: flex;
+  align-items: center;
+  overflow: hidden;
+}
+
+.card {
+  width: calc(20% - 16px);
+  height: 100%;
+  background-size: cover;
+  background-position: 40% 50%;
+  border-radius: 16px;
+  display: flex;
+  flex-direction: column;
+  align-items: start;
+  padding: 30px 25px 25px;
+  transition: all 0.8s ease;
+  cursor: pointer;
+}
+
+.card--1 {
+  background-image: url(./card1Bg.png);
+  margin-right: 10px;
+}
+.card--2 {
+  background-image: url(./card2Bg.png);
+  margin-left: 10px;
+  margin-right: 10px;
+}
+.card--3 {
+  background-image: url(./card3Bg.png);
+  margin-left: 10px;
+  margin-right: 10px;
+}
+.card--4 {
+  background-image: url(./card4Bg.png);
+  margin-left: 10px;
+  margin-right: 10px;
+}
+.card--5 {
+  background-image: url(./card5Bg.png);
+  margin-left: 10px;
+  margin-right: 0px;
+}
+
+.card-header {
+  margin-bottom: auto;
+  background: #2a66ff;
+  opacity: 0.9;
+  border-radius: 13.1574px;
+  font-family: "Manrope";
+  font-style: normal;
+  font-weight: 600;
+  font-size: 26.3147px;
+  line-height: 130%;
+  text-align: center;
+  letter-spacing: -0.02em;
+  color: #ffffff;
+  padding: 10px 17px;
+  display: none;
+}
+
+.card-content {
+  display: flex;
+  flex-direction: column;
+  align-items: start;
+  display: none;
+}
+
+.card-row {
+  display: flex;
+  align-items: center;
+  margin-bottom: 6px;
+}
+
+.card-cat {
+  background: #ffffff;
+  border-radius: 20px;
+  padding: 6px 10px;
+  font-family: "Manrope";
+  font-style: normal;
+  font-weight: 500;
+  font-size: 14px;
+  line-height: 86%;
+  letter-spacing: -0.02em;
+  color: #0a0e19;
+  margin-right: 4px;
+}
+
+.cart-description {
+  font-family: "Manrope";
+  font-style: normal;
+  font-weight: 400;
+  font-size: 20px;
+  line-height: 120%;
+  letter-spacing: -0.02em;
+  color: #ffffff;
+}
+.card:hover {
+  width: 100%;
+}
+.card:hover .card-header {
+  display: block;
+}
+.card:hover .card-content {
+  display: block;
+}
+
+.card-special-content {
+  display: none;
+  width: 100%;
+  height: 100%;
+}
+
+.card-active {
+  position: absolute;
+  top: 56px;
+  left: 0;
+  max-width: 100vw;
+  width: 100vw;
+  min-height: 300vh;
+  height: fit-content;
+  background: none;
+  overflow-x: hidden;
+  padding: 0;
+  margin: 0;
+}
+
+.card-active .special-bg {
+  max-width: 100vw;
+  width: 100%;
+  height: 100%;
+  min-height: 300vh;
+  transform: scale(1);
+  background-image: url(./card3Bg.png);
+  background-repeat: no-repeat;
+  background-size: 200%;
+  background-position: 0px 0px;
+}
+
+.card-active .card-special-content {
+  display: block;
+  max-width: 100vw;
+  width: 100vw;
+  height: 300vh;
+  overflow-x: hidden;
+}
+
+.card-active .card-header {
+  display: none !important;
+}
+.card-active .card-content {
+  display: none !important;
+}
+
+@media screen and (min-width: 1441px) {
+  .main {
+    padding-left: calc(calc(100% - 1240px) / 2);
+    padding-right: calc(calc(100% - 1240px) / 2);
+  }
+
+  .logo {
+    left: calc(calc(100% - 1240px) / 2);
+  }
+
+  .header {
+    right: calc(calc(100% - 1240px) / 2);
+  }
+}
