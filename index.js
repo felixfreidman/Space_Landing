@@ -9,6 +9,7 @@ let indexSpecial = 1;
 
 allCards.forEach(card => {
     card.addEventListener('click', () => {
+        flag = 0;
         card.classList.add('card-active');
         main.classList.add('main--cardActive');
         cardActiveMain = document.querySelector('.card-active');
@@ -99,6 +100,7 @@ allCards.forEach(card => {
 
 links.forEach((link, index) => {
     link.addEventListener('click', () => {
+        flag = 0;
         cardActiveMain = document.querySelector('.card-active');
         if (cardActiveMain.classList.contains('card--1')) {
             indexSpecial = 1;
