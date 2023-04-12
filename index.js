@@ -6,97 +6,339 @@ let cardActiveMain = 0
 let cardSection = 0
 let flag = 0;
 let indexSpecial = 1;
+let touchstartY = 0
+let touchendY = 0
 
-allCards.forEach(card => {
-    card.addEventListener('click', () => {
-        flag = 0;
-        card.classList.add('card-active');
-        main.classList.add('main--cardActive');
-        cardActiveMain = document.querySelector('.card-active');
-        cardSection = cardActiveMain.querySelector('.card-special-content');
-        header.classList.remove('js--hidden')
-        if (cardActiveMain.classList.contains('card--1')) {
-            links[0].classList.add('header-link--active')
-        } else if (cardActiveMain.classList.contains('card--2')) {
-            links[1].classList.add('header-link--active')
-        } else if (cardActiveMain.classList.contains('card--3')) {
-            links[2].classList.add('header-link--active')
-        } else if (cardActiveMain.classList.contains('card--4')) {
-            links[3].classList.add('header-link--active')
-        } else {
-            links[4].classList.add('header-link--active')
-        }
-        allCards.forEach(inner_card => {
-            if (!inner_card.classList.contains('card-active')) {
-                inner_card.classList.add('js--hidden-opacity');
+
+if (window.innerWidth >= 1100) {
+    console.log('hello');
+    allCards.forEach(card => {
+        card.addEventListener('click', () => {
+            flag = 0;
+            card.classList.add('card-active');
+            main.classList.add('main--cardActive');
+            cardActiveMain = document.querySelector('.card-active');
+            cardSection = cardActiveMain.querySelector('.card-special-content');
+            header.classList.remove('js--hidden')
+            if (cardActiveMain.classList.contains('card--1')) {
+                links[0].classList.add('header-link--active')
+            } else if (cardActiveMain.classList.contains('card--2')) {
+                links[1].classList.add('header-link--active')
+            } else if (cardActiveMain.classList.contains('card--3')) {
+                links[2].classList.add('header-link--active')
+            } else if (cardActiveMain.classList.contains('card--4')) {
+                links[3].classList.add('header-link--active')
+            } else {
+                links[4].classList.add('header-link--active')
             }
+            allCards.forEach(inner_card => {
+                if (!inner_card.classList.contains('card-active')) {
+                    inner_card.classList.add('js--hidden-opacity');
+                    inner_card.classList.add('maxWidthCard');
+                }
+            })
+            cardSection.addEventListener('wheel', (event) => {
+                console.log(flag);
+                const cardActive = document.querySelector('.card-active');
+                if (event.deltaY > 0 && flag < 7) {
+                    flag++;
+                } else if (event.deltaY < 0 && flag > -1) {
+                    flag--;
+                }
+
+                if (flag == 0) {
+                    cardActive.querySelector('.note2').classList.add('js--hidden');
+                    cardActive.querySelector('.note3').classList.add('js--hidden');
+                    cardActive.querySelector('.note1').classList.remove('js--hidden');
+                    cardActive.querySelector('.special-note').classList.add('js--hidden');
+                    cardActive.querySelector('.card-special-content').classList.remove('expanded');
+                    cardActive.querySelector('.special-bg').classList.remove('expanded');
+                    cardActive.querySelector('.card-panel-section').classList.remove('js--hidden');
+                    $('.card-active  .card-special-content')
+                        .find('.special-bg')
+                        .css('background-position', `0% 0%`);
+                    $('.card-active .card-special-content')
+                        .find('.special-bg')
+                        .css('background-size', '150%');
+                } else if (flag == 2) {
+                    cardActive.querySelector('.note1').classList.add('js--hidden');
+                    cardActive.querySelector('.note3').classList.add('js--hidden');
+                    cardActive.querySelector('.note2').classList.remove('js--hidden');
+                    cardActive.querySelector('.special-note').classList.add('js--hidden');
+                    cardActive.querySelector('.card-special-content').classList.remove('expanded');
+                    cardActive.querySelector('.special-bg').classList.remove('expanded');
+                    cardActive.querySelector('.card-panel-section').classList.remove('js--hidden');
+                    $('.card-active .card-special-content')
+                        .find('.special-bg')
+                        .css('background-position', `100% 70%`);
+                    $('.card-active .card-special-content')
+                        .find('.special-bg')
+                        .css('background-size', '150%');
+                } else if (flag == 4) {
+                    cardActive.querySelector('.note2').classList.add('js--hidden');
+                    cardActive.querySelector('.note1').classList.add('js--hidden');
+                    cardActive.querySelector('.note3').classList.remove('js--hidden');
+                    cardActive.querySelector('.special-note').classList.add('js--hidden');
+                    cardActive.querySelector('.card-special-content').classList.remove('expanded');
+                    cardActive.querySelector('.special-bg').classList.remove('expanded');
+                    cardActive.querySelector('.card-panel-section').classList.remove('js--hidden');
+                    $('.card-active .card-special-content')
+                        .find('.special-bg')
+                        .css('background-position', `50% 100%`);
+                    $('.card-active .card-special-content')
+                        .find('.special-bg')
+                        .css('background-size', '150%');
+                }
+                else if (flag == 6) {
+                    cardActive.querySelector('.note2').classList.add('js--hidden');
+                    cardActive.querySelector('.note1').classList.add('js--hidden');
+                    cardActive.querySelector('.note3').classList.add('js--hidden');
+                    cardActive.querySelector('.special-note').classList.remove('js--hidden');
+                    cardActive.querySelector('.card-panel-section').classList.add('js--hidden');
+                    cardActive.querySelector('.card-special-content').classList.add('expanded');
+                    cardActive.querySelector('.special-bg').classList.add('expanded');
+                    $('.card-active .card-special-content')
+                        .find('.special-bg')
+                        .css('background-size', 'cover');
+                }
+            })
         })
-        cardSection.addEventListener('wheel', (event) => {
-            const cardActive = document.querySelector('.card-active');
-            if (event.deltaY > 0 && flag < 4) {
-                flag++;
-            } else if (event.deltaY < 0 && flag >= 0) {
-                flag--;
-            }
 
-            if (flag == 0) {
-                cardActive.querySelector('.note2').classList.add('js--hidden');
-                cardActive.querySelector('.note3').classList.add('js--hidden');
-                cardActive.querySelector('.note1').classList.remove('js--hidden');
-                cardActive.querySelector('.special-note').classList.add('js--hidden');
-                cardActive.querySelector('.card-special-content').classList.remove('expanded');
-                cardActive.querySelector('.special-bg').classList.remove('expanded');
-                cardActive.querySelector('.card-panel-section').classList.remove('js--hidden');
-                $('.card-special-content')
-                    .find('.special-bg')
-                    .css('background-position', `0% 0%`);
-                $('.card-special-content')
-                    .find('.special-bg')
-                    .css('background-size', '150%');
-            } else if (flag == 1) {
-                cardActive.querySelector('.note1').classList.add('js--hidden');
-                cardActive.querySelector('.note3').classList.add('js--hidden');
-                cardActive.querySelector('.note2').classList.remove('js--hidden');
-                cardActive.querySelector('.special-note').classList.add('js--hidden');
-                cardActive.querySelector('.card-special-content').classList.remove('expanded');
-                cardActive.querySelector('.special-bg').classList.remove('expanded');
-                cardActive.querySelector('.card-panel-section').classList.remove('js--hidden');
-                $('.card-special-content')
-                    .find('.special-bg')
-                    .css('background-position', `100% 70%`);
-                $('.card-special-content')
-                    .find('.special-bg')
-                    .css('background-size', '150%');
-            } else if (flag == 2) {
-                cardActive.querySelector('.note2').classList.add('js--hidden');
-                cardActive.querySelector('.note1').classList.add('js--hidden');
-                cardActive.querySelector('.note3').classList.remove('js--hidden');
-                cardActive.querySelector('.special-note').classList.add('js--hidden');
-                cardActive.querySelector('.card-special-content').classList.remove('expanded');
-                cardActive.querySelector('.special-bg').classList.remove('expanded');
-                cardActive.querySelector('.card-panel-section').classList.remove('js--hidden');
-                $('.card-special-content')
-                    .find('.special-bg')
-                    .css('background-position', `50% 100%`);
-                $('.card-special-content')
-                    .find('.special-bg')
-                    .css('background-size', '150%');
+    })
+
+    links.forEach((link, index) => {
+        link.addEventListener('click', () => {
+            flag = 0;
+            cardActiveMain = document.querySelector('.card-active');
+            if (cardActiveMain.classList.contains('card--1')) {
+                indexSpecial = 1;
+            } else if (cardActiveMain.classList.contains('card--2')) {
+                indexSpecial = 2;
+            } else if (cardActiveMain.classList.contains('card--3')) {
+                indexSpecial = 3;
+            } else if (cardActiveMain.classList.contains('card--4')) {
+                indexSpecial = 4;
+            } else {
+                indexSpecial = 5;
             }
-            else if (flag == 3) {
-                cardActive.querySelector('.note2').classList.add('js--hidden');
-                cardActive.querySelector('.note1').classList.add('js--hidden');
-                cardActive.querySelector('.note3').classList.add('js--hidden');
-                cardActive.querySelector('.special-note').classList.remove('js--hidden');
-                cardActive.querySelector('.card-panel-section').classList.add('js--hidden');
-                cardActive.querySelector('.card-special-content').classList.add('expanded');
-                cardActive.querySelector('.special-bg').classList.add('expanded');
-                $('.card-special-content')
-                    .find('.special-bg')
-                    .css('background-size', 'cover');
+            console.log(indexSpecial);
+            console.log(index);
+            links.forEach((inner_link,) => {
+                inner_link.classList.remove('header-link--active');
+            });
+            link.classList.add('header-link--active');
+            cardActiveMain.classList.add('js--hidden');
+            cardActiveMain.classList.remove('card-active');
+            document.querySelector(`.card--${index + 1}`).classList.add('card-active');
+            document.querySelector(`.card--${index + 1}`).classList.remove('js--hidden-opacity');
+            document.querySelector(`.card--${index + 1}`).classList.remove('js--hidden');
+            flag = 0;
+            cardActiveMain = document.querySelector('.card-active');
+            cardSection = cardActiveMain.querySelector('.card-special-content');
+            if (cardActiveMain.classList.contains('card--1')) {
+                links[0].classList.add('header-link--active')
+            } else if (cardActiveMain.classList.contains('card--2')) {
+                links[1].classList.add('header-link--active')
+            } else if (cardActiveMain.classList.contains('card--3')) {
+                links[2].classList.add('header-link--active')
+            } else if (cardActiveMain.classList.contains('card--4')) {
+                links[3].classList.add('header-link--active')
+            } else {
+                links[4].classList.add('header-link--active')
             }
+            allCards.forEach(inner_card => {
+                if (!inner_card.classList.contains('card-active')) {
+                    inner_card.classList.add('js--hidden-opacity');
+                }
+            })
+            cardSection.addEventListener('wheel', (event) => {
+                console.log(flag);
+                const cardActive = document.querySelector('.card-active');
+                if (event.deltaY > 0 && flag < 7) {
+                    flag++;
+                } else if (event.deltaY < 0 && flag > -1) {
+                    flag--;
+                }
+
+                if (flag == 0) {
+                    cardActive.querySelector('.note2').classList.add('js--hidden');
+                    cardActive.querySelector('.note3').classList.add('js--hidden');
+                    cardActive.querySelector('.note1').classList.remove('js--hidden');
+                    cardActive.querySelector('.special-note').classList.add('js--hidden');
+                    cardActive.querySelector('.card-special-content').classList.remove('expanded');
+                    cardActive.querySelector('.special-bg').classList.remove('expanded');
+                    cardActive.querySelector('.card-panel-section').classList.remove('js--hidden');
+                    $('.card-active  .card-special-content')
+                        .find('.special-bg')
+                        .css('background-position', `0% 0%`);
+                    $('.card-active .card-special-content')
+                        .find('.special-bg')
+                        .css('background-size', '150%');
+                } else if (flag == 2) {
+                    cardActive.querySelector('.note1').classList.add('js--hidden');
+                    cardActive.querySelector('.note3').classList.add('js--hidden');
+                    cardActive.querySelector('.note2').classList.remove('js--hidden');
+                    cardActive.querySelector('.special-note').classList.add('js--hidden');
+                    cardActive.querySelector('.card-special-content').classList.remove('expanded');
+                    cardActive.querySelector('.special-bg').classList.remove('expanded');
+                    cardActive.querySelector('.card-panel-section').classList.remove('js--hidden');
+                    $('.card-active .card-special-content')
+                        .find('.special-bg')
+                        .css('background-position', `100% 70%`);
+                    $('.card-active .card-special-content')
+                        .find('.special-bg')
+                        .css('background-size', '150%');
+                } else if (flag == 4) {
+                    cardActive.querySelector('.note2').classList.add('js--hidden');
+                    cardActive.querySelector('.note1').classList.add('js--hidden');
+                    cardActive.querySelector('.note3').classList.remove('js--hidden');
+                    cardActive.querySelector('.special-note').classList.add('js--hidden');
+                    cardActive.querySelector('.card-special-content').classList.remove('expanded');
+                    cardActive.querySelector('.special-bg').classList.remove('expanded');
+                    cardActive.querySelector('.card-panel-section').classList.remove('js--hidden');
+                    $('.card-active .card-special-content')
+                        .find('.special-bg')
+                        .css('background-position', `50% 100%`);
+                    $('.card-active .card-special-content')
+                        .find('.special-bg')
+                        .css('background-size', '150%');
+                }
+                else if (flag == 6) {
+                    cardActive.querySelector('.note2').classList.add('js--hidden');
+                    cardActive.querySelector('.note1').classList.add('js--hidden');
+                    cardActive.querySelector('.note3').classList.add('js--hidden');
+                    cardActive.querySelector('.special-note').classList.remove('js--hidden');
+                    cardActive.querySelector('.card-panel-section').classList.add('js--hidden');
+                    cardActive.querySelector('.card-special-content').classList.add('expanded');
+                    cardActive.querySelector('.special-bg').classList.add('expanded');
+                    $('.card-active .card-special-content')
+                        .find('.special-bg')
+                        .css('background-size', 'cover');
+                }
+            })
         })
     })
-})
+} else {
+    allCards.forEach(card => {
+        card.addEventListener('click', () => {
+            flag = 0;
+            card.classList.add('card-active');
+            main.classList.add('main--cardActive');
+            cardActiveMain = document.querySelector('.card-active');
+            cardSection = cardActiveMain.querySelector('.card-special-content');
+            header.classList.remove('js--hidden')
+            if (cardActiveMain.classList.contains('card--1')) {
+                links[0].classList.add('header-link--active')
+            } else if (cardActiveMain.classList.contains('card--2')) {
+                links[1].classList.add('header-link--active')
+            } else if (cardActiveMain.classList.contains('card--3')) {
+                links[2].classList.add('header-link--active')
+            } else if (cardActiveMain.classList.contains('card--4')) {
+                links[3].classList.add('header-link--active')
+            } else {
+                links[4].classList.add('header-link--active')
+            }
+            allCards.forEach(inner_card => {
+                if (!inner_card.classList.contains('card-active')) {
+                    inner_card.classList.add('js--hidden-opacity');
+                    inner_card.classList.add('maxWidthCard');
+                }
+            })
+            function checkDirectionCard() {
+                if (touchendY < touchstartY) {
+                    flag++;
+
+                    const cardActive = document.querySelector('.card-active');
+                    if (flag == 0) {
+                        console.log('hello');
+                        cardActive.querySelector('.note2').classList.add('js--hidden');
+                        cardActive.querySelector('.note3').classList.add('js--hidden');
+                        cardActive.querySelector('.note1').classList.remove('js--hidden');
+                        cardActive.querySelector('.special-note').classList.add('js--hidden');
+                        cardActive.querySelector('.card-special-content').classList.remove('expanded');
+                        cardActive.querySelector('.special-bg').classList.remove('expanded');
+                        cardActive.querySelector('.card-panel-section').classList.remove('js--hidden');
+                        $('.card-active')
+                            .find('.special-image--mobile')
+                            .css('transform', `translateX(0%)`);
+                    } else if (flag == 1) {
+                        cardActive.querySelector('.note1').classList.add('js--hidden');
+                        cardActive.querySelector('.note3').classList.add('js--hidden');
+                        cardActive.querySelector('.note2').classList.remove('js--hidden');
+                        cardActive.querySelector('.special-note').classList.add('js--hidden');
+                        cardActive.querySelector('.card-special-content').classList.remove('expanded');
+                        cardActive.querySelector('.special-bg').classList.remove('expanded');
+                        cardActive.querySelector('.card-panel-section').classList.remove('js--hidden');
+                        $('.card-active')
+                            .find('.special-image--mobile')
+                            .css('transform', `translateX(-30%)`);
+                    } else if (flag == 2) {
+                        cardActive.querySelector('.note2').classList.add('js--hidden');
+                        cardActive.querySelector('.note1').classList.add('js--hidden');
+                        cardActive.querySelector('.note3').classList.remove('js--hidden');
+                        cardActive.querySelector('.special-note').classList.add('js--hidden');
+                        cardActive.querySelector('.card-special-content').classList.remove('expanded');
+                        cardActive.querySelector('.special-bg').classList.remove('expanded');
+                        cardActive.querySelector('.card-panel-section').classList.remove('js--hidden');
+                        $('.card-active')
+                            .find('.special-image--mobile')
+                            .css('transform', `translateX(-45%)`);
+                    }
+                    flag++;
+                    console.log(flag);
+                }
+                if (touchendY > touchstartY) {
+                    flag--;
+
+                    if (flag == 0) {
+                        cardActive.querySelector('.note2').classList.add('js--hidden');
+                        cardActive.querySelector('.note3').classList.add('js--hidden');
+                        cardActive.querySelector('.note1').classList.remove('js--hidden');
+                        cardActive.querySelector('.special-note').classList.add('js--hidden');
+                        cardActive.querySelector('.card-special-content').classList.remove('expanded');
+                        cardActive.querySelector('.special-bg').classList.remove('expanded');
+                        cardActive.querySelector('.card-panel-section').classList.remove('js--hidden');
+                        $('.card-active')
+                            .find('.special-image--mobile')
+                            .css('transform', `translateX(0%)`);
+                    } else if (flag == 1) {
+                        cardActive.querySelector('.note1').classList.add('js--hidden');
+                        cardActive.querySelector('.note3').classList.add('js--hidden');
+                        cardActive.querySelector('.note2').classList.remove('js--hidden');
+                        cardActive.querySelector('.special-note').classList.add('js--hidden');
+                        cardActive.querySelector('.card-special-content').classList.remove('expanded');
+                        cardActive.querySelector('.special-bg').classList.remove('expanded');
+                        cardActive.querySelector('.card-panel-section').classList.remove('js--hidden');
+                        $('.card-active')
+                            .find('.special-image--mobile')
+                            .css('transform', `translateX(-30%)`);
+                    } else if (flag == 2) {
+                        cardActive.querySelector('.note2').classList.add('js--hidden');
+                        cardActive.querySelector('.note1').classList.add('js--hidden');
+                        cardActive.querySelector('.note3').classList.remove('js--hidden');
+                        cardActive.querySelector('.special-note').classList.add('js--hidden');
+                        cardActive.querySelector('.card-special-content').classList.remove('expanded');
+                        cardActive.querySelector('.special-bg').classList.remove('expanded');
+                        cardActive.querySelector('.card-panel-section').classList.remove('js--hidden');
+                        $('.card-active')
+                            .find('.special-image--mobile')
+                            .css('transform', `translateX(-45%)`);
+                    }
+                }
+            }
+        });
+
+        cardSection.addEventListener('touchstart', e => {
+            touchstartY = e.changedTouches[0].screenX
+        })
+
+        cardSection.addEventListener('touchend', e => {
+            touchendY = e.changedTouches[0].screenX
+            checkDirectionCard()
+        })
+    })
+}
+// })
 
 links.forEach((link, index) => {
     link.addEventListener('click', () => {
@@ -117,12 +359,28 @@ links.forEach((link, index) => {
             inner_link.classList.remove('header-link--active');
         });
         link.classList.add('header-link--active');
-        cardActiveMain.classList.add('js--hidden-opacity');
+        cardActiveMain.classList.add('js--hidden');
         cardActiveMain.classList.remove('card-active');
         document.querySelector(`.card--${index + 1}`).classList.add('card-active');
         document.querySelector(`.card--${index + 1}`).classList.remove('js--hidden-opacity');
+        document.querySelector(`.card--${index + 1}`).classList.remove('js--hidden');
+        flag = 0;
+        cardActiveMain = document.querySelector('.card-active');
+        cardSection = cardActiveMain.querySelector('.card-special-content');
+        if (cardActiveMain.classList.contains('card--1')) {
+            links[0].classList.add('header-link--active')
+        } else if (cardActiveMain.classList.contains('card--2')) {
+            links[1].classList.add('header-link--active')
+        } else if (cardActiveMain.classList.contains('card--3')) {
+            links[2].classList.add('header-link--active')
+        } else if (cardActiveMain.classList.contains('card--4')) {
+            links[3].classList.add('header-link--active')
+        } else {
+            links[4].classList.add('header-link--active')
+        }
     })
 })
+// }
 
 
 
